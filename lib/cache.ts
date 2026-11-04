@@ -6,15 +6,24 @@ import type { PublicSiteSettings } from "@/lib/types/database";
 
 export const FALLBACK_SITE_SETTINGS: PublicSiteSettings = {
   logo_url: null,
-  foundation_name: "Hope Foundation",
-  contact_email: "hello@example.org",
-  contact_phone: null,
-  address: null,
-  social_links: {},
+  foundation_name: "হোপ ফাউন্ডেশন",
+  foundation_name_en: "Hope Foundation",
+  contact_email: "hello@hopefoundation.org",
+  contact_phone: "+880 1700-000000",
+  address: "খুলনা, বাংলাদেশ",
+  address_en: "Khulna, Bangladesh",
+  social_links: {
+    facebook: "https://facebook.com",
+    instagram: "https://instagram.com",
+    youtube: "https://youtube.com",
+  },
   google_site_verification_code: null,
-  meta_title: "Hope Foundation",
+  meta_title: "হোপ ফাউন্ডেশন",
+  meta_title_en: "Hope Foundation",
   meta_description:
-    "A professional foundation website for causes, donations, and community impact.",
+    "প্রকৃতি সংরক্ষণের জন্য একটি সবুজ ফাউন্ডেশন—স্বচ্ছ দান, মাঠের কাজ, জীবন্ত আবাস।",
+  meta_description_en:
+    "A nature conservation foundation for transparent giving, field work, and living habitat.",
 };
 
 export async function getPublicSiteSettings(): Promise<PublicSiteSettings> {
@@ -30,7 +39,7 @@ export async function getPublicSiteSettings(): Promise<PublicSiteSettings> {
   const { data, error } = await supabase
     .from("site_settings_public")
     .select(
-      "logo_url, foundation_name, contact_email, contact_phone, address, social_links, google_site_verification_code, meta_title, meta_description",
+      "logo_url, foundation_name, foundation_name_en, contact_email, contact_phone, address, address_en, social_links, google_site_verification_code, meta_title, meta_title_en, meta_description, meta_description_en",
     )
     .maybeSingle();
 
@@ -38,5 +47,5 @@ export async function getPublicSiteSettings(): Promise<PublicSiteSettings> {
     return FALLBACK_SITE_SETTINGS;
   }
 
-  return data;
+  return { ...FALLBACK_SITE_SETTINGS, ...data };
 }

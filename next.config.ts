@@ -14,7 +14,17 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "*.supabase.in",
       },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
     ],
+  },
+  async rewrites() {
+    return [
+      { source: "/en", destination: "/" },
+      { source: "/en/:path*", destination: "/:path*" },
+    ];
   },
   turbopack: {
     rules: {

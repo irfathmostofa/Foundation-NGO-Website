@@ -1,0 +1,154 @@
+{
+  "brand": {
+    "tagline": "Protect, restore, celebrate the living world",
+    "conservation": "We protect forests, wetlands, and wildlife habitat."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "causes": "Causes",
+    "gallery": "Gallery",
+    "achievements": "Achievements",
+    "transparency": "Transparency",
+    "membership": "Membership",
+    "careers": "Careers",
+    "blog": "Blog",
+    "contact": "Contact",
+    "donate": "Donate",
+    "becomeMember": "Become a member",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "follow": "Follow our work"
+  },
+  "actions": {
+    "readMore": "Read more",
+    "viewAlbum": "View album",
+    "viewAll": "View all",
+    "apply": "Apply",
+    "submit": "Submit",
+    "sending": "Sending…",
+    "learnMore": "Learn more",
+    "seeTransparency": "See the ledger",
+    "browseRoles": "Browse roles",
+    "backToCareers": "Back to careers",
+    "backToGallery": "Back to gallery",
+    "backToCauses": "Back to causes",
+    "backToBlog": "Back to blog"
+  },
+  "home": {
+    "eyebrow": "Our habitat",
+    "impact": "Impact",
+    "featuredCauses": "Living causes",
+    "recentGallery": "From the field",
+    "transparency": "Transparency snapshot",
+    "membershipBand": "Grow with us",
+    "membershipBody": "Become a member and stand with forests, rivers, and wildlife for the long run."
+  },
+  "about": {
+    "eyebrow": "Why we exist",
+    "mission": "Mission",
+    "vision": "Vision",
+    "values": "Values",
+    "story": "Our story",
+    "timeline": "Timeline",
+    "team": "Team",
+    "custom": "More"
+  },
+  "gallery": {
+    "eyebrow": "Field notes",
+    "images": "photos",
+    "empty": "No albums have been published yet.",
+    "close": "Close",
+    "previous": "Previous image",
+    "next": "Next image",
+    "of": "of"
+  },
+  "achievements": {
+    "eyebrow": "Milestones",
+    "empty": "No achievements have been published yet."
+  },
+  "transparency": {
+    "eyebrow": "Open ledger",
+    "collected": "Total collected",
+    "spent": "Total spent",
+    "balance": "Remaining",
+    "collections": "Collections",
+    "expenses": "Expenses",
+    "category": "Category",
+    "date": "Date",
+    "amount": "Amount",
+    "title": "Title",
+    "receipt": "Receipt",
+    "empty": "No published records yet.",
+    "currencyNote": "All amounts are in Bangladeshi Taka."
+  },
+  "membership": {
+    "eyebrow": "Grow together",
+    "plans": "Membership plans",
+    "fee": "Fee",
+    "formTitle": "Apply to become a member",
+    "success": "Application received. We will be in touch.",
+    "emptyPlans": "No active plans right now."
+  },
+  "careers": {
+    "eyebrow": "Join the field",
+    "openRoles": "Open roles",
+    "deadline": "Deadline",
+    "department": "Department",
+    "location": "Location",
+    "type": "Type",
+    "requirements": "Requirements",
+    "applyTitle": "Apply for this role",
+    "success": "Application received. We will be in touch.",
+    "empty": "There are no open roles right now.",
+    "expired": "Closed",
+    "types": {
+      "full_time": "Full time",
+      "part_time": "Part time",
+      "contract": "Contract",
+      "volunteer": "Volunteer"
+    }
+  },
+  "causes": {
+    "eyebrow": "Protect habitat",
+    "goal": "Goal",
+    "raised": "Raised",
+    "empty": "No active causes right now."
+  },
+  "blog": {
+    "eyebrow": "Field notes",
+    "empty": "No published posts yet."
+  },
+  "contact": {
+    "eyebrow": "Say hello",
+    "formTitle": "Send a message",
+    "success": "Message received. We will reply soon."
+  },
+  "forms": {
+    "fullName": "Full name",
+    "email": "Email",
+    "phone": "Phone",
+    "address": "Address",
+    "plan": "Plan",
+    "motivation": "Why do you want to join",
+    "coverLetter": "Cover letter",
+    "resume": "Resume",
+    "message": "Message",
+    "required": "This field is required.",
+    "invalidEmail": "Enter a valid email.",
+    "selectPlan": "Choose a plan",
+    "placeholderName": "Your name",
+    "placeholderEmail": "you@example.com",
+    "placeholderPhone": "017xxxxxxxx",
+    "placeholderAddress": "Village, upazila, district",
+    "placeholderMotivation": "Which part of nature calls you?",
+    "placeholderCover": "Why this role is a fit",
+    "placeholderMessage": "How can we help?"
+  },
+  "empty": {
+    "image": "Image coming soon"
+  }
+}

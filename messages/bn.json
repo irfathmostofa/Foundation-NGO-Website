@@ -1,0 +1,154 @@
+{
+  "brand": {
+    "tagline": "প্রকৃতি রক্ষা, পুনরুদ্ধার, উদযাপন",
+    "conservation": "আমরা বন, জলাভূমি ও বন্যপ্রাণের আবাস রক্ষা করি।"
+  },
+  "nav": {
+    "home": "হোম",
+    "about": "আমাদের কথা",
+    "causes": "উদ্যোগ",
+    "gallery": "ছবিঘর",
+    "achievements": "অর্জন",
+    "transparency": "স্বচ্ছতা",
+    "membership": "সদস্যপদ",
+    "careers": "কর্মসংস্থান",
+    "blog": "ব্লগ",
+    "contact": "যোগাযোগ",
+    "donate": "দান করুন",
+    "becomeMember": "সদস্য হোন",
+    "openMenu": "মেনু খুলুন",
+    "closeMenu": "মেনু বন্ধ করুন"
+  },
+  "footer": {
+    "rights": "সর্বস্বত্ব সংরক্ষিত",
+    "follow": "আমাদের সাথে থাকুন"
+  },
+  "actions": {
+    "readMore": "আরও পড়ুন",
+    "viewAlbum": "অ্যালবাম দেখুন",
+    "viewAll": "সব দেখুন",
+    "apply": "আবেদন করুন",
+    "submit": "জমা দিন",
+    "sending": "পাঠানো হচ্ছে…",
+    "learnMore": "বিস্তারিত",
+    "seeTransparency": "খাতা দেখুন",
+    "browseRoles": "খালি পদ দেখুন",
+    "backToCareers": "সব পদে ফিরুন",
+    "backToGallery": "ছবিঘরে ফিরুন",
+    "backToCauses": "উদ্যোগে ফিরুন",
+    "backToBlog": "ব্লগে ফিরুন"
+  },
+  "home": {
+    "eyebrow": "আমাদের আবাস",
+    "impact": "প্রভাব",
+    "featuredCauses": "চলমান উদ্যোগ",
+    "recentGallery": "সাম্প্রতিক ছবি",
+    "transparency": "স্বচ্ছতার এক ঝলক",
+    "membershipBand": "আমাদের সাথে বেড়ে উঠুন",
+    "membershipBody": "সদস্য হয়ে বন, নদী ও বন্যপ্রাণ রক্ষায় স্থায়ী অংশীদার হোন।"
+  },
+  "about": {
+    "eyebrow": "কেন আমরা আছি",
+    "mission": "লক্ষ্য",
+    "vision": "দৃষ্টি",
+    "values": "মূল্যবোধ",
+    "story": "আমাদের গল্প",
+    "timeline": "পথচলা",
+    "team": "দল",
+    "custom": "আরও"
+  },
+  "gallery": {
+    "eyebrow": "মাঠ থেকে",
+    "images": "ছবি",
+    "empty": "এখনও কোনো অ্যালবাম প্রকাশিত হয়নি।",
+    "close": "বন্ধ",
+    "previous": "আগের ছবি",
+    "next": "পরের ছবি",
+    "of": "এর"
+  },
+  "achievements": {
+    "eyebrow": "মাইলফলক",
+    "empty": "এখনও কোনো অর্জন প্রকাশিত হয়নি।"
+  },
+  "transparency": {
+    "eyebrow": "খোলা খাতা",
+    "collected": "মোট সংগ্রহ",
+    "spent": "মোট ব্যয়",
+    "balance": "অবশিষ্ট",
+    "collections": "সংগ্রহ",
+    "expenses": "ব্যয়",
+    "category": "শ্রেণি",
+    "date": "তারিখ",
+    "amount": "পরিমাণ",
+    "title": "বিবরণ",
+    "receipt": "রসিদ",
+    "empty": "এখনও কোনো প্রকাশিত হিসাব নেই।",
+    "currencyNote": "সব পরিমাণ বাংলাদেশি টাকায়।"
+  },
+  "membership": {
+    "eyebrow": "একসাথে বেড়ে উঠি",
+    "plans": "সদস্য পরিকল্পনা",
+    "fee": "চাঁদা",
+    "formTitle": "সদস্য হতে আবেদন করুন",
+    "success": "আবেদন গৃহীত হয়েছে। আমরা খুব শিগগিরই যোগাযোগ করব।",
+    "emptyPlans": "এখন কোনো সক্রিয় পরিকল্পনা নেই।"
+  },
+  "careers": {
+    "eyebrow": "মাঠে যোগ দিন",
+    "openRoles": "খালি পদ",
+    "deadline": "শেষ তারিখ",
+    "department": "বিভাগ",
+    "location": "স্থান",
+    "type": "ধরন",
+    "requirements": "যোগ্যতা",
+    "applyTitle": "এই পদে আবেদন করুন",
+    "success": "আবেদন গৃহীত হয়েছে। আমরা খুব শিগগিরই যোগাযোগ করব।",
+    "empty": "এখন কোনো খালি পদ নেই।",
+    "expired": "মেয়াদ শেষ",
+    "types": {
+      "full_time": "পূর্ণকালীন",
+      "part_time": "খণ্ডকালীন",
+      "contract": "চুক্তিভিত্তিক",
+      "volunteer": "স্বেচ্ছাসেবক"
+    }
+  },
+  "causes": {
+    "eyebrow": "বাসস্থাম রক্ষা",
+    "goal": "লক্ষ্য",
+    "raised": "সংগৃহীত",
+    "empty": "এখন কোনো সক্রিয় উদ্যোগ নেই।"
+  },
+  "blog": {
+    "eyebrow": "মাঠ নোট",
+    "empty": "এখন কোনো প্রকাশিত লেখা নেই."
+  },
+  "contact": {
+    "eyebrow": "কথা বলুন",
+    "formTitle": "বার্তা পাঠান",
+    "success": "বার্তা পেয়েছি। আমরা শিগগির উত্তর দেব।"
+  },
+  "forms": {
+    "fullName": "পূর্ণ নাম",
+    "email": "ইমেইল",
+    "phone": "ফোন",
+    "address": "ঠিকানা",
+    "plan": "পরিকল্পনা",
+    "motivation": "কেন যোগ দিতে চান",
+    "coverLetter": "কভার লেটার",
+    "resume": "জীবনবৃত্তান্ত",
+    "message": "বার্তা",
+    "required": "এই ঘরটি প্রয়োজন।",
+    "invalidEmail": "সঠিক ইমেইল লিখুন।",
+    "selectPlan": "একটি পরিকল্পনা বেছে নিন",
+    "placeholderName": "আপনার নাম",
+    "placeholderEmail": "you@example.com",
+    "placeholderPhone": "০১৭xxxxxxxx",
+    "placeholderAddress": "গ্রাম, উপজেলা, জেলা",
+    "placeholderMotivation": "প্রকৃতির কোন অংশ আপনাকে টানে?",
+    "placeholderCover": "কেন এই কাজ আপনার জন্য মানানসই",
+    "placeholderMessage": "আমরা কীভাবে সাহায্য করতে পারি?"
+  },
+  "empty": {
+    "image": "ছবি শিগগির আসছে"
+  }
+}

@@ -9,7 +9,8 @@ The full product specification lives in `docs/MASTER_PROMPT.md`.
 - Phase 1: Project setup and architecture — complete
 - Phase 2: Database schema and Supabase configuration — complete
 - Phase 3: Secure admin panel and global settings — complete
-- Phase 4+: waiting for approval
+- Phase 4: Public frontend and interactive UI — complete
+- Phase 5+: waiting for approval
 ## Setup
 
 ```bash
