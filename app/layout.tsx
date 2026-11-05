@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Suspense } from "react";
 import {
   Fraunces,
   Geist_Mono,
@@ -118,7 +119,9 @@ export default function RootLayout({
         />
       </head>
       <body className="flex min-h-full flex-col">
-        <DocumentLang />
+        <Suspense fallback={null}>
+          <DocumentLang />
+        </Suspense>
         {children}
         <Toaster />
       </body>
