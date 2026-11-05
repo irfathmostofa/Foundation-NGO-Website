@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { DonationForm } from "@/components/public/donation-form";
 import { PageHero } from "@/components/public/page-hero";
 import { getPublishedCauses } from "@/lib/content/public";
@@ -14,7 +15,11 @@ export async function generateMetadata() {
   });
 }
 
-export default async function DonatePage({
+function DonateFormFallback() {
+  return <div className="h-96 rounded-2xl bg-muted" />;
+}
+
+async function DonateFormFromParams({
   searchParams,
 }: {
   searchParams: Promise<{ cause?: string }>;
@@ -28,24 +33,61 @@ export default async function DonatePage({
     causes.find((item) => item.id === cause || item.slug === cause)?.id ?? null;
 
   return (
+    <DonationForm
+      causes={causes.filter((item) => item.status === "active")}
+      locale={locale}
+      dict={dict}
+      initialCauseId={initialCauseId}
+    />
+  );
+}
+
+export default function DonatePage({
+  searchParams,
+}: {
+  searchParams: Promise<{ cause?: string }>;
+}) {
+  return (
     <>
-      <PageHero
-        eyebrow={dict.donate.eyebrow}
-        title={dict.donate.title}
-        subtitle={dict.donate.subtitle}
-      />
+      <Suspense fallback={<div className="h-64 bg-mist/70" />}>
+        <DonateHero />
+      </Suspense>
       <section className="mx-auto grid w-full max-w-6xl gap-12 px-6 py-16 lg:grid-cols-[0.9fr_1.1fr]">
-        <div className="space-y-4 leading-7 text-muted-foreground">
-          <p>{dict.brand.conservation}</p>
-          <p>{dict.donate.secureNote}</p>
-        </div>
-        <DonationForm
-          causes={causes.filter((item) => item.status === "active")}
-          locale={locale}
-          dict={dict}
-          initialCauseId={initialCauseId}
-        />
+        <Suspense
+          fallback={
+            <>
+              <div className="space-y-4">
+                <div className="h-24 rounded-xl bg-muted" />
+              </div>
+              <DonateFormFallback />
+            </>
+          }
+        >
+          <DonateCopy />
+          <DonateFormFromParams searchParams={searchParams} />
+        </Suspense>
       </section>
     </>
+  );
+}
+
+async function DonateHero() {
+  const { dict } = await getRequestDictionary();
+  return (
+    <PageHero
+      eyebrow={dict.donate.eyebrow}
+      title={dict.donate.title}
+      subtitle={dict.donate.subtitle}
+    />
+  );
+}
+
+async function DonateCopy() {
+  const { dict } = await getRequestDictionary();
+  return (
+    <div className="space-y-4 leading-7 text-muted-foreground">
+      <p>{dict.brand.conservation}</p>
+      <p>{dict.donate.secureNote}</p>
+    </div>
   );
 }

@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Link from "next/link";
 import { Sprout } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
@@ -7,7 +8,17 @@ import { noIndexMetadata } from "@/lib/seo";
 
 export const metadata = noIndexMetadata("Donation received");
 
-export default async function DonateSuccessPage({
+function DonateResultFallback() {
+  return (
+    <section className="mx-auto flex w-full max-w-2xl flex-col items-start gap-6 px-6 py-24">
+      <div className="size-12 rounded-full bg-muted" />
+      <div className="h-10 w-72 rounded-md bg-muted" />
+      <div className="h-20 w-full rounded-md bg-muted" />
+    </section>
+  );
+}
+
+async function DonateSuccessContent({
   searchParams,
 }: {
   searchParams: Promise<{ tran_id?: string }>;
@@ -39,5 +50,17 @@ export default async function DonateSuccessPage({
         </Link>
       </div>
     </section>
+  );
+}
+
+export default function DonateSuccessPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ tran_id?: string }>;
+}) {
+  return (
+    <Suspense fallback={<DonateResultFallback />}>
+      <DonateSuccessContent searchParams={searchParams} />
+    </Suspense>
   );
 }

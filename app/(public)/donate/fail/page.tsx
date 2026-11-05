@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import { localizeHref } from "@/lib/i18n/config";
@@ -6,7 +7,16 @@ import { noIndexMetadata } from "@/lib/seo";
 
 export const metadata = noIndexMetadata("Donation failed");
 
-export default async function DonateFailPage({
+function DonateResultFallback() {
+  return (
+    <section className="mx-auto flex w-full max-w-2xl flex-col items-start gap-6 px-6 py-24">
+      <div className="h-10 w-72 rounded-md bg-muted" />
+      <div className="h-20 w-full rounded-md bg-muted" />
+    </section>
+  );
+}
+
+async function DonateFailContent({
   searchParams,
 }: {
   searchParams: Promise<{ tran_id?: string }>;
@@ -27,5 +37,17 @@ export default async function DonateFailPage({
         {dict.donate.tryAgain}
       </Link>
     </section>
+  );
+}
+
+export default function DonateFailPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ tran_id?: string }>;
+}) {
+  return (
+    <Suspense fallback={<DonateResultFallback />}>
+      <DonateFailContent searchParams={searchParams} />
+    </Suspense>
   );
 }
