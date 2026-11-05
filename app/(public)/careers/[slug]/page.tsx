@@ -7,6 +7,32 @@ import { localizeHref } from "@/lib/i18n/config";
 import { pickLocalized } from "@/lib/i18n/dictionary";
 import { formatDate, isPastDate } from "@/lib/i18n/format";
 import { getRequestDictionary } from "@/lib/i18n/server";
+import { buildMetadata } from "@/lib/seo";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const { locale, dict } = await getRequestDictionary();
+  const job = await getJobBySlug(slug);
+  if (!job) {
+    return {};
+  }
+  const location = pickLocalized(locale, job.location, job.location_en);
+  const department = pickLocalized(locale, job.department, job.department_en);
+  return buildMetadata({
+    title: pickLocalized(locale, job.title, job.title_en),
+    description:
+      pickLocalized(locale, job.description, job.description_en) ||
+      [department, location, dict.careers.types[job.employment_type]]
+        .filter(Boolean)
+        .join(" · "),
+    path: `/careers/${job.slug}`,
+    locale,
+  });
+}
 
 export default async function CareerDetailPage({
   params,

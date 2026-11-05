@@ -2,10 +2,16 @@ import { DonationForm } from "@/components/public/donation-form";
 import { PageHero } from "@/components/public/page-hero";
 import { getPublishedCauses } from "@/lib/content/public";
 import { getRequestDictionary } from "@/lib/i18n/server";
+import { buildMetadata } from "@/lib/seo";
 
 export async function generateMetadata() {
-  const { dict } = await getRequestDictionary();
-  return { title: dict.nav.donate };
+  const { locale, dict } = await getRequestDictionary();
+  return buildMetadata({
+    title: dict.donate.title,
+    description: dict.donate.subtitle,
+    path: "/donate",
+    locale,
+  });
 }
 
 export default async function DonatePage({

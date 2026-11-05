@@ -2,6 +2,9 @@ import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import { getRequestDictionary } from "@/lib/i18n/server";
 import { localizeHref } from "@/lib/i18n/config";
+import { noIndexMetadata } from "@/lib/seo";
+
+export const metadata = noIndexMetadata("Not found");
 
 export default async function NotFound() {
   const { locale, dict } = await getRequestDictionary();

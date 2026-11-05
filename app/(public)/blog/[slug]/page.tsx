@@ -7,6 +7,30 @@ import { localizeHref } from "@/lib/i18n/config";
 import { pickLocalized } from "@/lib/i18n/dictionary";
 import { formatDate } from "@/lib/i18n/format";
 import { getRequestDictionary } from "@/lib/i18n/server";
+import { buildMetadata } from "@/lib/seo";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const locale = (await getRequestDictionary()).locale;
+  const post = await getPostBySlug(slug);
+  if (!post) {
+    return {};
+  }
+  return buildMetadata({
+    title: pickLocalized(locale, post.title, post.title_en),
+    description: pickLocalized(locale, post.excerpt, post.excerpt_en),
+    path: `/blog/${post.slug}`,
+    locale,
+    image: post.cover_image_url,
+    type: "article",
+    publishedTime: post.published_at,
+    modifiedTime: post.updated_at,
+  });
+}
 
 export default async function BlogPostPage({
   params,

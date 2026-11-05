@@ -60,7 +60,7 @@ export function SiteHeader({
           {settings.logo_url ? (
             <Image
               src={settings.logo_url}
-              alt=""
+              alt={name}
               width={36}
               height={36}
               className="size-9 rounded-full object-cover"
@@ -84,6 +84,7 @@ export function SiteHeader({
               <Link
                 key={item.href}
                 href={href}
+                aria-current={active ? "page" : undefined}
                 className={`whitespace-nowrap transition-colors ${
                   active
                     ? "font-medium text-primary"

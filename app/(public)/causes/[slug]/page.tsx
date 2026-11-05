@@ -8,6 +8,31 @@ import { localizeHref } from "@/lib/i18n/config";
 import { pickLocalized } from "@/lib/i18n/dictionary";
 import { formatCurrency } from "@/lib/i18n/format";
 import { getRequestDictionary } from "@/lib/i18n/server";
+import { buildMetadata } from "@/lib/seo";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const locale = (await getRequestDictionary()).locale;
+  const cause = await getCauseBySlug(slug);
+  if (!cause) {
+    return {};
+  }
+  return buildMetadata({
+    title: pickLocalized(locale, cause.title, cause.title_en),
+    description: pickLocalized(
+      locale,
+      cause.short_description,
+      cause.short_description_en,
+    ) || pickLocalized(locale, cause.description, cause.description_en),
+    path: `/causes/${cause.slug}`,
+    locale,
+    image: cause.image_url,
+  });
+}
 
 export default async function CauseDetailPage({
   params,

@@ -1,8 +1,10 @@
+import Image from "next/image";
 import Link from "next/link";
 import { CountUp } from "@/components/public/count-up";
 import { NatureImage } from "@/components/public/nature-image";
 import { Reveal } from "@/components/public/reveal";
 import { buttonVariants } from "@/components/ui/button";
+import { NATURE_IMAGES } from "@/lib/content/images";
 import { getPublicSiteSettings } from "@/lib/cache";
 import {
   getAchievements,
@@ -50,11 +52,13 @@ export default async function HomePage() {
   return (
     <>
       <section className="relative isolate min-h-[78vh] overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: `url(${copy.heroImage})`,
-          }}
+        <Image
+          src={copy.heroImage || NATURE_IMAGES.canopy}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-canopy via-canopy/55 to-canopy/20" />
         <div className="relative mx-auto flex min-h-[78vh] w-full max-w-6xl flex-col justify-end px-6 pb-20 pt-28">

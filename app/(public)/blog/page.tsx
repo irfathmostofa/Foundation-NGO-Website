@@ -7,10 +7,16 @@ import { localizeHref } from "@/lib/i18n/config";
 import { pickLocalized } from "@/lib/i18n/dictionary";
 import { formatDate } from "@/lib/i18n/format";
 import { getRequestDictionary } from "@/lib/i18n/server";
+import { buildMetadata } from "@/lib/seo";
 
 export async function generateMetadata() {
-  const { dict } = await getRequestDictionary();
-  return { title: dict.nav.blog };
+  const { locale, dict } = await getRequestDictionary();
+  return buildMetadata({
+    title: dict.nav.blog,
+    description: dict.blog.eyebrow,
+    path: "/blog",
+    locale,
+  });
 }
 
 export default async function BlogPage() {

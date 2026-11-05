@@ -1,5 +1,9 @@
+import type { Metadata } from "next";
 import { LoginForm } from "@/components/admin/login-form";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { noIndexMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = noIndexMetadata("Admin login");
 
 export default async function AdminLoginPage({
   searchParams,

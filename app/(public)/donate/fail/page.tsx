@@ -2,6 +2,9 @@ import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import { localizeHref } from "@/lib/i18n/config";
 import { getRequestDictionary } from "@/lib/i18n/server";
+import { noIndexMetadata } from "@/lib/seo";
+
+export const metadata = noIndexMetadata("Donation failed");
 
 export default async function DonateFailPage({
   searchParams,

@@ -17,7 +17,8 @@
     "donate": "Donate",
     "becomeMember": "Become a member",
     "openMenu": "Open menu",
-    "closeMenu": "Close menu"
+    "closeMenu": "Close menu",
+    "skipToContent": "Skip to content"
   },
   "footer": {
     "rights": "All rights reserved",

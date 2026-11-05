@@ -1,5 +1,9 @@
+import type { Metadata } from "next";
 import { AdminSidebar } from "@/components/admin/admin-sidebar";
 import { requireStaff } from "@/lib/auth";
+import { noIndexMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = noIndexMetadata("Admin");
 
 export default async function AdminGroupLayout({
   children,

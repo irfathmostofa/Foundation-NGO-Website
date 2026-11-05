@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import {
   Fraunces,
   Geist_Mono,
@@ -10,6 +10,8 @@ import { Toaster } from "@/components/ui/sonner";
 import { getPublicSiteSettings } from "@/lib/cache";
 import { getRequestLocale } from "@/lib/i18n/server";
 import { pickLocalized } from "@/lib/i18n/dictionary";
+import { getSiteUrl } from "@/lib/payments/site-url";
+import { buildMetadata } from "@/lib/seo";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -43,6 +45,12 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const viewport: Viewport = {
+  themeColor: "#2f5d3a",
+  width: "device-width",
+  initialScale: 1,
+};
+
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await getPublicSiteSettings();
   const locale = await getRequestLocale();
@@ -51,20 +59,41 @@ export async function generateMetadata(): Promise<Metadata> {
     settings.foundation_name,
     settings.foundation_name_en,
   );
-  const title = pickLocalized(locale, settings.meta_title, settings.meta_title_en) || name;
-  const description =
-    pickLocalized(locale, settings.meta_description, settings.meta_description_en) ||
-    undefined;
+  const title =
+    pickLocalized(locale, settings.meta_title, settings.meta_title_en) || name;
+  const description = pickLocalized(
+    locale,
+    settings.meta_description,
+    settings.meta_description_en,
+  );
+  const seo = await buildMetadata({
+    title,
+    description,
+    path: "/",
+    locale,
+    image: settings.logo_url,
+  });
 
   return {
+    metadataBase: new URL(getSiteUrl()),
     title: {
       default: title,
       template: `%s | ${name}`,
     },
-    description,
+    description: seo.description,
     verification: settings.google_site_verification_code
       ? { google: settings.google_site_verification_code }
       : undefined,
+    openGraph: {
+      type: "website",
+      locale: seo.openGraph?.locale,
+      siteName: name,
+      title,
+      description: seo.description ?? undefined,
+      images: seo.openGraph?.images,
+    },
+    twitter: seo.twitter,
+    robots: { index: true, follow: true },
   };
 }
 

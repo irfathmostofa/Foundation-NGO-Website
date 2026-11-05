@@ -3,6 +3,9 @@ import { Sprout } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import { localizeHref } from "@/lib/i18n/config";
 import { getRequestDictionary } from "@/lib/i18n/server";
+import { noIndexMetadata } from "@/lib/seo";
+
+export const metadata = noIndexMetadata("Donation received");
 
 export default async function DonateSuccessPage({
   searchParams,
