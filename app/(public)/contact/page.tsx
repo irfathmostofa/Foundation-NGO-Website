@@ -35,7 +35,7 @@ export default async function ContactPage() {
         </div>
         <div>
           <h2 className="mb-4 font-heading text-2xl">{dict.contact.formTitle}</h2>
-          <ContactForm dict={dict} />
+          <ContactForm dict={dict} locale={locale} />
         </div>
       </section>
     </>

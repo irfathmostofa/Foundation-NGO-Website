@@ -8,10 +8,11 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import type { ActionState } from "@/actions/settings";
 import type { Dictionary } from "@/lib/i18n/dictionary";
+import type { Locale } from "@/lib/i18n/config";
 
 const initial: ActionState = {};
 
-export function ContactForm({ dict }: { dict: Dictionary }) {
+export function ContactForm({ dict, locale }: { dict: Dictionary; locale: Locale }) {
   const [state, action] = useActionState(submitContactAction, initial);
 
   if (state.success) {
@@ -24,6 +25,7 @@ export function ContactForm({ dict }: { dict: Dictionary }) {
 
   return (
     <form action={action} className="space-y-4 rounded-2xl border border-border bg-card p-6">
+      <input type="hidden" name="locale" value={locale} />
       <div className="space-y-1.5">
         <Label htmlFor="full_name">{dict.forms.fullName}</Label>
         <Input id="full_name" name="full_name" required placeholder={dict.forms.placeholderName} />

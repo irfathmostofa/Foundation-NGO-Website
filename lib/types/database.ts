@@ -62,6 +62,10 @@ export type Donation = {
   id: string;
   donor_name: string;
   donor_email: string;
+  donor_phone?: string | null;
+  donor_address?: string | null;
+  message?: string | null;
+  locale?: string | null;
   amount: number;
   transaction_id: string | null;
   cause_id: string | null;
@@ -238,6 +242,7 @@ export type FinanceEntry = {
   source_or_payee: string | null;
   receipt_url: string | null;
   is_published: boolean;
+  transaction_id?: string | null;
   category?: FinanceCategory | null;
 };
 

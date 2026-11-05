@@ -105,7 +105,7 @@ export function SiteHeader({
             {dict.nav.becomeMember}
           </Link>
           <Link
-            href={localizeHref(locale, "/causes")}
+            href={localizeHref(locale, "/donate")}
             className={`${buttonVariants({ size: "sm" })} hidden sm:inline-flex`}
           >
             {dict.nav.donate}
@@ -143,7 +143,7 @@ export function SiteHeader({
                 {dict.nav.becomeMember}
               </Link>
               <Link
-                href={localizeHref(locale, "/causes")}
+                href={localizeHref(locale, "/donate")}
                 className={`${buttonVariants()} flex-1`}
               >
                 {dict.nav.donate}

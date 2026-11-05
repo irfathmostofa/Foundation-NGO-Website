@@ -70,7 +70,7 @@ export default async function HomePage() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
-                href={localizeHref(locale, "/causes")}
+                href={localizeHref(locale, "/donate")}
                 className={buttonVariants({ size: "lg" })}
               >
                 {dict.nav.donate}

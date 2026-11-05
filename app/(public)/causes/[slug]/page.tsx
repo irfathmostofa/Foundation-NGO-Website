@@ -58,7 +58,7 @@ export default async function CauseDetailPage({
             {formatCurrency(locale, Number(cause.goal_amount))}
           </p>
           <Link
-            href={localizeHref(locale, "/contact")}
+            href={localizeHref(locale, `/donate?cause=${cause.slug}`)}
             className={`${buttonVariants({ size: "lg" })} mt-6 w-full`}
           >
             {dict.nav.donate}
