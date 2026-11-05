@@ -74,20 +74,26 @@ export default async function AboutPage() {
       ))}
 
       {story.map((section) => (
-        <section key={section.id} className="mx-auto grid w-full max-w-6xl gap-10 px-6 py-16 md:grid-cols-2">
-          <NatureImage
-            src={section.image_url}
-            alt={pickLocalized(locale, section.title, section.title_en)}
-            className="h-full min-h-72"
-          />
-          <div>
+        <section
+          key={section.id}
+          className="mx-auto grid w-full max-w-6xl items-center gap-8 overflow-x-hidden px-4 py-12 sm:px-6 sm:py-16 md:grid-cols-2 md:gap-12"
+        >
+          <div className="min-w-0 w-full">
+            <NatureImage
+              src={section.image_url}
+              alt={pickLocalized(locale, section.title, section.title_en)}
+              className="w-full max-w-full"
+              sizes="(min-width: 768px) 50vw, 100vw"
+            />
+          </div>
+          <div className="min-w-0">
             <p className="text-xs tracking-[0.2em] text-primary uppercase">
               {dict.about.story}
             </p>
-            <h2 className="mt-3 font-heading text-3xl">
+            <h2 className="mt-3 font-heading text-2xl break-words sm:text-3xl">
               {pickLocalized(locale, section.title, section.title_en)}
             </h2>
-            <p className="mt-5 whitespace-pre-line leading-8 text-foreground/85">
+            <p className="mt-5 whitespace-pre-line text-[0.95rem] leading-7 break-words text-foreground/85 sm:text-base sm:leading-8">
               {pickLocalized(locale, section.body, section.body_en)}
             </p>
           </div>

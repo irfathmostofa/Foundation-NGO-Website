@@ -19,7 +19,7 @@ export function NatureImage({
     return (
       <div
         className={cn(
-          "flex aspect-[4/3] items-center justify-center rounded-2xl bg-moss/60 text-primary",
+          "flex aspect-[4/3] w-full min-w-0 max-w-full items-center justify-center rounded-2xl bg-moss/60 text-primary",
           className,
         )}
       >
@@ -30,7 +30,7 @@ export function NatureImage({
   }
 
   return (
-    <div className={cn("relative aspect-[4/3] overflow-hidden rounded-2xl bg-moss/40", className)}>
+    <div className={cn("relative aspect-[4/3] w-full min-w-0 max-w-full overflow-hidden rounded-2xl bg-moss/40", className)}>
       <Image
         src={src}
         alt={alt}

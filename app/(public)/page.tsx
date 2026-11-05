@@ -126,22 +126,29 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="py-20">
-        <div className="mx-auto grid w-full max-w-6xl gap-10 px-6 md:grid-cols-2">
-          <NatureImage
-            src={NATURE_IMAGES.wetland}
-            alt={dict.home.storyTitle}
-            className="h-full min-h-72"
-          />
-          <Reveal>
+      <section className="overflow-x-hidden py-12 sm:py-16 md:py-20">
+        <div className="mx-auto grid w-full max-w-6xl items-center gap-8 px-4 sm:px-6 md:grid-cols-2 md:gap-12">
+          <div className="min-w-0 w-full">
+            <NatureImage
+              src={NATURE_IMAGES.wetland}
+              alt={dict.home.storyTitle}
+              className="w-full max-w-full"
+              sizes="(min-width: 768px) 50vw, 100vw"
+            />
+          </div>
+          <Reveal className="min-w-0">
             <p className="text-xs font-medium tracking-[0.22em] text-primary uppercase">
               {dict.about.story}
             </p>
-            <h2 className="mt-3 font-heading text-3xl md:text-4xl">
+            <h2 className="mt-3 font-heading text-2xl break-words sm:text-3xl md:text-4xl">
               {dict.home.storyTitle}
             </h2>
-            <p className="mt-5 leading-8 text-foreground/85">{dict.home.storyP1}</p>
-            <p className="mt-4 leading-8 text-foreground/85">{dict.home.storyP2}</p>
+            <p className="mt-5 text-[0.95rem] leading-7 break-words text-foreground/85 sm:text-base sm:leading-8">
+              {dict.home.storyP1}
+            </p>
+            <p className="mt-4 text-[0.95rem] leading-7 break-words text-foreground/85 sm:text-base sm:leading-8">
+              {dict.home.storyP2}
+            </p>
           </Reveal>
         </div>
       </section>
