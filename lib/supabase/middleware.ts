@@ -26,6 +26,10 @@ export async function updateSession(request: NextRequest) {
   const isAdminRoute = pathname.startsWith("/admin");
   const isLoginRoute = pathname === "/admin/login";
 
+  if (pathname === "/locale") {
+    return NextResponse.next({ request });
+  }
+
   const urlLocale: Locale = isEnglishPath(pathname) ? "en" : defaultLocale;
   const cookieLocale = getLocale(request.cookies.get(localeCookieName)?.value);
   let locale: Locale = urlLocale;
@@ -35,6 +39,7 @@ export async function updateSession(request: NextRequest) {
     if (
       hasCookie &&
       cookieLocale === "en" &&
+      urlLocale === "bn" &&
       (pathname === "/" || pathname === "")
     ) {
       const url = request.nextUrl.clone();

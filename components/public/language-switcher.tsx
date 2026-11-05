@@ -1,17 +1,15 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
-  localeCookieName,
   localeNames,
-  localizeHref,
   stripLocalePrefix,
   type Locale,
 } from "@/lib/i18n/config";
 
-function persistLocale(locale: Locale) {
-  document.cookie = `${localeCookieName}=${locale}; path=/; max-age=31536000; samesite=lax`;
+function switchHref(locale: Locale, path: string) {
+  const params = new URLSearchParams({ locale, next: path });
+  return `/locale?${params.toString()}`;
 }
 
 export function LanguageSwitcher({ locale }: { locale: Locale }) {
@@ -25,13 +23,11 @@ export function LanguageSwitcher({ locale }: { locale: Locale }) {
       aria-label="Language"
     >
       {(["bn", "en"] as const).map((item) => {
-        const href = localizeHref(item, path);
         const active = item === locale;
         return (
-          <Link
+          <a
             key={item}
-            href={href}
-            onClick={() => persistLocale(item)}
+            href={switchHref(item, path)}
             className={`rounded-full px-2.5 py-1 font-medium transition-colors ${
               active
                 ? "bg-primary text-primary-foreground"
@@ -39,9 +35,10 @@ export function LanguageSwitcher({ locale }: { locale: Locale }) {
             }`}
             hrefLang={item}
             lang={item}
+            aria-current={active ? "true" : undefined}
           >
             {localeNames[item]}
-          </Link>
+          </a>
         );
       })}
     </div>

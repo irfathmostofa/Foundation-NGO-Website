@@ -1,5 +1,7 @@
+import { Suspense } from "react";
 import { Leaf } from "lucide-react";
 import Link from "next/link";
+import { CopyrightYear } from "@/components/public/copyright-year";
 import { PUBLIC_NAV } from "@/lib/constants";
 import { localizeHref, type Locale } from "@/lib/i18n/config";
 import { pickLocalized, type Dictionary } from "@/lib/i18n/dictionary";
@@ -86,7 +88,10 @@ export function SiteFooter({
       <div className="border-t border-white/10">
         <div className="mx-auto flex w-full max-w-6xl justify-between px-6 py-5 text-xs text-canopy-foreground/65">
           <span>
-            {new Date().getFullYear()} {name}. {dict.footer.rights}.
+            <Suspense fallback="2026">
+              <CopyrightYear />
+            </Suspense>{" "}
+            {name}. {dict.footer.rights}.
           </span>
           <span>{dict.brand.tagline}</span>
         </div>
