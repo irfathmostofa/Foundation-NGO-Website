@@ -25,7 +25,7 @@ function isEmail(value: string) {
 }
 
 function foundationName(locale: Locale, bn: string | null | undefined, en: string | null | undefined) {
-  return pickLocalized(locale, bn, en) || (locale === "en" ? "Hope Foundation" : "হোপ ফাউন্ডেশন");
+  return pickLocalized(locale, bn, en) || (locale === "en" ? "1 Taka Tree Plantation" : "১টাকায় বৃক্ষরোপণ");
 }
 
 export async function submitMembershipAction(

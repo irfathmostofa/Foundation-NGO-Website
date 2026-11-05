@@ -7,10 +7,12 @@ import type { Locale } from "@/lib/i18n/config";
 export function CountUp({
   value,
   locale,
+  suffix = "",
   className,
 }: {
   value: number;
   locale: Locale;
+  suffix?: string;
   className?: string;
 }) {
   const [display, setDisplay] = useState(0);
@@ -57,6 +59,7 @@ export function CountUp({
   return (
     <span ref={node} className={className}>
       {formatNumber(locale, display)}
+      {suffix}
     </span>
   );
 }

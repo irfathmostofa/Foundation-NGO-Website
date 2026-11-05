@@ -7,6 +7,11 @@ export const defaultLocale: Locale = "bn";
 export const localeCookieName = "NEXT_LOCALE";
 
 export const localeNames: Record<Locale, string> = {
+  bn: "বা",
+  en: "EN",
+};
+
+export const localeFullNames: Record<Locale, string> = {
   bn: "বাংলা",
   en: "English",
 };

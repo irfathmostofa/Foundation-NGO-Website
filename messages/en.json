@@ -1,7 +1,7 @@
 {
   "brand": {
-    "tagline": "Protect, restore, celebrate the living world",
-    "conservation": "We protect forests, wetlands, and wildlife habitat."
+    "tagline": "A greener world from a small daily saving",
+    "conservation": "1 Taka Tree Plantation — a greener world from a small daily saving. Serving the environment and humanity since 2019."
   },
   "nav": {
     "home": "Home",
@@ -40,13 +40,35 @@
     "backToBlog": "Back to blog"
   },
   "home": {
-    "eyebrow": "Our habitat",
-    "impact": "Impact",
+    "eyebrow": "1 Taka Tree Plantation",
+    "donateMonthly": "Donate 30 taka a month",
+    "ourWork": "Our work",
+    "impact": "Our numbers",
+    "statMembers": "Proud patriotic members",
+    "statDream": "Our dream destination",
+    "statDreamValue": "160 million",
+    "statForest": "National afforestation target",
+    "statStart": "The start of our path",
+    "statStartValue": "11 June 2019",
+    "storyTitle": "The idea that started our journey",
+    "storyP1": "\"1 Taka Tree Plantation\" is an environmental volunteer organization founded on 11 June 2019. From the day it began, it has worked without pause to protect the environment. The idea is simple and powerful: each person saves just one taka a day, so in thirty days the saving is thirty taka. With those thirty taka, at least one tree is planted each month.",
+    "storyP2": "If this campaign can reach Bangladesh's 160 million people, one taka saved each day can plant 160 million trees a month. Through this vast effort we can raise the country's forest cover to 25%. From this far-reaching idea and dream, the journey of \"1 Taka Tree Plantation\" began.",
+    "missionTitle": "We are not only planting trees—we are building the future",
+    "feature1Title": "Planting and care",
+    "feature1Body": "1 Taka Tree Plantation does not stop at planting a tree. It also makes sure every planted tree is cared for and grows.",
+    "feature2Title": "Skills and awareness",
+    "feature2Body": "To make people aware of environmental protection and to grow members' skills, the organization has already run several successful campaigns across the country.",
+    "feature3Title": "Standing with people left behind",
+    "feature3Body": "Alongside the environment, we work for people without fortune or a home. We believe this small gift may change a life. Who can say—among them may be the next Justice Hossain or A. P. J. Abdul Kalam.",
+    "howTitle": "How your 1 taka creates a vast change",
+    "howBody": "The idea is simple—you give 1 taka a day, 30 taka a month. Alone it may feel small, but the strength of unity is immense!\nIf 100 people give 30 taka a month, the fund holds 3,000 taka (30 * 100 = 3,000).\nWhen a family of 2,000 or 10,000 people is built, that shared fund can put a smile on the faces of people in need, alongside the environment.",
     "featuredCauses": "Living causes",
     "recentGallery": "From the field",
     "transparency": "Transparency snapshot",
-    "membershipBand": "Grow with us",
-    "membershipBody": "Become a member and stand with forests, rivers, and wildlife for the long run."
+    "ctaTitle": "Join this large family of patriots today!",
+    "ctaBody": "More than 4,183 fortunate people have already joined, giving one taka a day to help build a better world. Do you want to be part of this work? Your 1 taka a day may change a life and save a world.",
+    "ctaJoin": "Join 1 Taka Tree Plantation",
+    "ctaDonate": "Donate directly"
   },
   "about": {
     "eyebrow": "Why we exist",
@@ -121,8 +143,8 @@
   },
   "donate": {
     "eyebrow": "Keep habitat alive",
-    "title": "A sapling, a nest, a clearer stream",
-    "subtitle": "Your gift goes to the field. Choose an amount, tell us who you are, and pay securely.",
+    "title": "30 taka a month, one tree",
+    "subtitle": "One taka a day. Your gift goes straight to planting, care, and people in need.",
     "stepAmount": "Amount",
     "stepDetails": "Your details",
     "stepReview": "Confirm",

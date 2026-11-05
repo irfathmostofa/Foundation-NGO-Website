@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import { getRequestDictionary } from "@/lib/i18n/server";
@@ -6,7 +7,17 @@ import { noIndexMetadata } from "@/lib/seo";
 
 export const metadata = noIndexMetadata("Not found");
 
-export default async function NotFound() {
+function NotFoundFallback() {
+  return (
+    <section className="mx-auto flex min-h-[60vh] w-full max-w-3xl flex-col justify-center px-6 py-24">
+      <p className="text-xs tracking-[0.22em] text-primary uppercase">404</p>
+      <div className="mt-4 h-10 w-64 rounded-md bg-muted" />
+      <div className="mt-4 h-16 max-w-lg rounded-md bg-muted" />
+    </section>
+  );
+}
+
+async function NotFoundContent() {
   const { locale, dict } = await getRequestDictionary();
 
   return (
@@ -24,5 +35,13 @@ export default async function NotFound() {
         {dict.nav.home}
       </Link>
     </section>
+  );
+}
+
+export default function NotFound() {
+  return (
+    <Suspense fallback={<NotFoundFallback />}>
+      <NotFoundContent />
+    </Suspense>
   );
 }

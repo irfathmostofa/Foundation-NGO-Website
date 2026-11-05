@@ -225,8 +225,8 @@ export async function markDonationOutcome(options: {
       .maybeSingle();
     const foundationName =
       settled.locale === "en"
-        ? settings?.foundation_name_en || settings?.foundation_name || "Hope Foundation"
-        : settings?.foundation_name || "হোপ ফাউন্ডেশন";
+        ? settings?.foundation_name_en || settings?.foundation_name || "1 Taka Tree Plantation"
+        : settings?.foundation_name || "১টাকায় বৃক্ষরোপণ";
     void notifyQuietly([
       donationReceiptEmail({
         donorName: settled.donor_name,

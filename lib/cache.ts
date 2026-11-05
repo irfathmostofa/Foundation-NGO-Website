@@ -6,24 +6,26 @@ import type { PublicSiteSettings } from "@/lib/types/database";
 
 export const FALLBACK_SITE_SETTINGS: PublicSiteSettings = {
   logo_url: null,
-  foundation_name: "হোপ ফাউন্ডেশন",
-  foundation_name_en: "Hope Foundation",
-  contact_email: "hello@hopefoundation.org",
-  contact_phone: "+880 1700-000000",
-  address: "খুলনা, বাংলাদেশ",
-  address_en: "Khulna, Bangladesh",
+  foundation_name: "১টাকায় বৃক্ষরোপণ",
+  foundation_name_en: "1 Taka Tree Plantation",
+  contact_email: "ektakaybrikkhoropon@gmail.com",
+  contact_phone: "+88018 43 048666",
+  address:
+    "ব্লক ২, হাজী আবুল কালাম ভবনের নিচ তলা, হাটহাজারী, চট্টগ্রাম বিশ্ববিদ্যালয়, চট্টগ্রাম",
+  address_en:
+    "Block 2, ground floor of Haji Abul Kalam Bhaban, Hathazari, University of Chittagong, Chattogram",
   social_links: {
     facebook: "https://facebook.com",
     instagram: "https://instagram.com",
     youtube: "https://youtube.com",
   },
   google_site_verification_code: null,
-  meta_title: "হোপ ফাউন্ডেশন",
-  meta_title_en: "Hope Foundation",
+  meta_title: "১টাকায় বৃক্ষরোপণ",
+  meta_title_en: "1 Taka Tree Plantation",
   meta_description:
-    "প্রকৃতি সংরক্ষণের জন্য একটি সবুজ ফাউন্ডেশন—স্বচ্ছ দান, মাঠের কাজ, জীবন্ত আবাস।",
+    "প্রতিদিন এক টাকা, মাসে একটি গাছ। ২০১৯ সাল থেকে পরিবেশ ও মানবতার সেবায় নিয়োজিত।",
   meta_description_en:
-    "A nature conservation foundation for transparent giving, field work, and living habitat.",
+    "One taka a day, one tree a month. Serving the environment and humanity since 2019.",
 };
 
 export async function getPublicSiteSettings(): Promise<PublicSiteSettings> {

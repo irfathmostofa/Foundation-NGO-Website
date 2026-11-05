@@ -15,7 +15,7 @@ import type { Locale } from "@/lib/i18n/config";
 import { donationInputSchema, type DonationInput } from "@/lib/payments/schema";
 import type { CauseProject } from "@/lib/types/database";
 
-const PRESETS = [500, 1000, 2500, 5000, 10000];
+const PRESETS = [30, 90, 180, 360, 1000];
 
 type Step = 0 | 1 | 2;
 
@@ -37,7 +37,7 @@ export function DonationForm({
   const form = useForm<DonationInput>({
     resolver: zodResolver(donationInputSchema),
     defaultValues: {
-      amount: 1000,
+      amount: 30,
       cause_id: initialCauseId || "",
       donor_name: "",
       donor_email: "",

@@ -4,6 +4,7 @@ export {
   isEnglishPath,
   isLocale,
   localeCookieName,
+  localeFullNames,
   localeNames,
   locales,
   localizeHref,

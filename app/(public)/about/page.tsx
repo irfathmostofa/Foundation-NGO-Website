@@ -87,7 +87,7 @@ export default async function AboutPage() {
             <h2 className="mt-3 font-heading text-3xl">
               {pickLocalized(locale, section.title, section.title_en)}
             </h2>
-            <p className="mt-5 leading-8 text-foreground/85">
+            <p className="mt-5 whitespace-pre-line leading-8 text-foreground/85">
               {pickLocalized(locale, section.body, section.body_en)}
             </p>
           </div>

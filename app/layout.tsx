@@ -6,9 +6,10 @@ import {
   Noto_Serif_Bengali,
   Source_Sans_3,
 } from "next/font/google";
+import { DocumentLang } from "@/components/document-lang";
 import { Toaster } from "@/components/ui/sonner";
 import { getPublicSiteSettings } from "@/lib/cache";
-import { getRequestLocale } from "@/lib/i18n/server";
+import { defaultLocale } from "@/lib/i18n/config";
 import { pickLocalized } from "@/lib/i18n/dictionary";
 import { getSiteUrl } from "@/lib/payments/site-url";
 import { buildMetadata } from "@/lib/seo";
@@ -53,7 +54,7 @@ export const viewport: Viewport = {
 
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await getPublicSiteSettings();
-  const locale = await getRequestLocale();
+  const locale = defaultLocale;
   const name = pickLocalized(
     locale,
     settings.foundation_name,
@@ -97,20 +98,27 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const locale = await getRequestLocale();
-
   return (
     <html
-      lang={locale}
+      lang={defaultLocale}
       dir="ltr"
+      suppressHydrationWarning
       className={`${fraunces.variable} ${sourceSans.variable} ${notoSerifBengali.variable} ${notoSansBengali.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var p=location.pathname;document.documentElement.lang=(p==="/en"||p.indexOf("/en/")===0)?"en":"${defaultLocale}"}catch(e){}})()`,
+          }}
+        />
+      </head>
       <body className="flex min-h-full flex-col">
+        <DocumentLang />
         {children}
         <Toaster />
       </body>

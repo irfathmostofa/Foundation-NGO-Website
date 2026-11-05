@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import {
+  localeFullNames,
   localeNames,
   stripLocalePrefix,
   type Locale,
@@ -35,6 +36,8 @@ export function LanguageSwitcher({ locale }: { locale: Locale }) {
             }`}
             hrefLang={item}
             lang={item}
+            title={localeFullNames[item]}
+            aria-label={localeFullNames[item]}
             aria-current={active ? "true" : undefined}
           >
             {localeNames[item]}
