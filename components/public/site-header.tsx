@@ -99,12 +99,12 @@ export function SiteHeader({
 
         <div className="flex items-center gap-2">
           <LanguageSwitcher locale={locale} />
-          <Link
+          {/* <Link
             href={localizeHref(locale, "/membership")}
             className={`${buttonVariants({ variant: "outline", size: "sm" })} hidden md:inline-flex`}
           >
             {dict.nav.becomeMember}
-          </Link>
+          </Link> */}
           <Link
             href={localizeHref(locale, "/donate")}
             className={`${buttonVariants({ size: "sm" })} hidden sm:inline-flex`}
@@ -137,12 +137,12 @@ export function SiteHeader({
               </Link>
             ))}
             <div className="mt-2 flex gap-2">
-              <Link
+              {/* <Link
                 href={localizeHref(locale, "/membership")}
                 className={`${buttonVariants({ variant: "outline" })} flex-1`}
               >
                 {dict.nav.becomeMember}
-              </Link>
+              </Link> */}
               <Link
                 href={localizeHref(locale, "/donate")}
                 className={`${buttonVariants()} flex-1`}
