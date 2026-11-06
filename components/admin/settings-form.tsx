@@ -5,10 +5,16 @@ import { updateSiteSettingsAction, type ActionState } from "@/actions/settings";
 import { FormMessage } from "@/components/admin/form-message";
 import { ImageField } from "@/components/admin/image-field";
 import { SubmitButton } from "@/components/admin/submit-button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import {
+  SSLCOMMERZ_SANDBOX_CARDS,
+  SSLCOMMERZ_SANDBOX_OTP,
+  SSLCOMMERZ_SANDBOX_STORE_ID,
+  SSLCOMMERZ_SANDBOX_STORE_PASSWORD,
+} from "@/lib/payments/sandbox";
 import type { SiteSettings } from "@/lib/types/database";
 
 const initialState: ActionState = {};
@@ -131,18 +137,24 @@ export function SettingsForm({ settings }: { settings: SiteSettings }) {
       <Card>
         <CardHeader>
           <CardTitle>SSL Commerz</CardTitle>
+          <CardDescription>
+            Demo uses the official sandbox store ({SSLCOMMERZ_SANDBOX_STORE_ID}).
+            Leave Live mode off until you have production credentials.
+          </CardDescription>
         </CardHeader>
         <CardContent className="grid gap-4 md:grid-cols-2">
           <Field
             label="Store ID"
             name="sslcommerz_store_id"
-            defaultValue={settings.sslcommerz_store_id}
+            defaultValue={settings.sslcommerz_store_id || SSLCOMMERZ_SANDBOX_STORE_ID}
           />
           <Field
             label="Store password"
             name="sslcommerz_store_password"
             type="password"
-            defaultValue={settings.sslcommerz_store_password}
+            defaultValue={
+              settings.sslcommerz_store_password || SSLCOMMERZ_SANDBOX_STORE_PASSWORD
+            }
           />
           <label className="flex items-center gap-2 text-sm md:col-span-2">
             <input
@@ -152,12 +164,28 @@ export function SettingsForm({ settings }: { settings: SiteSettings }) {
             />
             Live mode
           </label>
+          <div className="rounded-xl border border-border bg-muted/40 p-4 text-sm md:col-span-2">
+            <p className="font-medium">Sandbox test cards</p>
+            <ul className="mt-2 space-y-1 text-muted-foreground">
+              {SSLCOMMERZ_SANDBOX_CARDS.map((card) => (
+                <li key={card.brand}>
+                  {card.brand}: {card.number} · Exp {card.exp} · CVV {card.cvv}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-2 text-muted-foreground">Mobile OTP: {SSLCOMMERZ_SANDBOX_OTP}</p>
+          </div>
         </CardContent>
       </Card>
 
       <Card>
         <CardHeader>
           <CardTitle>Email.js</CardTitle>
+          <CardDescription>
+            Server-side REST send. Copy the HTML from docs/EMAILJS_TEMPLATE.md into
+            one EmailJS template, then paste the IDs here. Private key is required
+            for server requests.
+          </CardDescription>
         </CardHeader>
         <CardContent className="grid gap-4 md:grid-cols-2">
           <Field

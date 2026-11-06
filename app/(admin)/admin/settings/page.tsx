@@ -2,6 +2,10 @@ import { SettingsForm } from "@/components/admin/settings-form";
 import { getSiteSettings } from "@/actions/settings";
 import { requireStaff } from "@/lib/auth";
 import { FALLBACK_SITE_SETTINGS } from "@/lib/cache";
+import {
+  SSLCOMMERZ_SANDBOX_STORE_ID,
+  SSLCOMMERZ_SANDBOX_STORE_PASSWORD,
+} from "@/lib/payments/sandbox";
 
 export default async function AdminSettingsPage() {
   await requireStaff();
@@ -20,8 +24,8 @@ export default async function AdminSettingsPage() {
           settings ?? {
             id: 1,
             ...FALLBACK_SITE_SETTINGS,
-            sslcommerz_store_id: null,
-            sslcommerz_store_password: null,
+            sslcommerz_store_id: SSLCOMMERZ_SANDBOX_STORE_ID,
+            sslcommerz_store_password: SSLCOMMERZ_SANDBOX_STORE_PASSWORD,
             sslcommerz_is_live: false,
             emailjs_service_id: null,
             emailjs_template_id: null,

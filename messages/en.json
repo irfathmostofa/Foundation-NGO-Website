@@ -169,7 +169,12 @@
     "gatewayError": "The payment gateway is not ready yet. Please try again later.",
     "saveError": "We could not save this donation. Please try again.",
     "causeError": "This cause cannot accept donations right now.",
-    "secureNote": "Payment is protected by SSL Commerz. We never store card numbers.",
+    "secureNote": "Payment is protected by SSL Commerz sandbox for demo. We never store card numbers.",
+    "sandboxTitle": "Sandbox test cards",
+    "sandboxOtp": "Mobile OTP: 111111 or 123456",
+    "sandboxVisa": "VISA 4111111111111111 · Exp 12/26 · CVV 111",
+    "sandboxMaster": "Mastercard 5111111111111111 · Exp 12/26 · CVV 111",
+    "sandboxAmex": "American Express 371111111111111 · Exp 12/26 · CVV 111",
     "message": "Message (optional)",
     "placeholderMessage": "Which habitat calls you?",
     "currency": "BDT"

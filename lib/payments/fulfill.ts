@@ -6,6 +6,10 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import type { Donation } from "@/lib/types/database";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import {
+  isSandboxStoreId,
+  SSLCOMMERZ_SANDBOX_CREDENTIALS,
+} from "@/lib/payments/sandbox";
+import {
   isValidGatewayStatus,
   type SslcommerzCredentials,
   validateSslcommerzPayment,
@@ -15,7 +19,7 @@ export type PaymentOutcome = "success" | "failed" | "cancelled";
 
 export async function loadSslcommerzCredentials(): Promise<SslcommerzCredentials | null> {
   if (!isSupabaseConfigured() || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
-    return null;
+    return { ...SSLCOMMERZ_SANDBOX_CREDENTIALS };
   }
 
   const supabase = createAdminClient();
@@ -26,13 +30,15 @@ export async function loadSslcommerzCredentials(): Promise<SslcommerzCredentials
     .maybeSingle();
 
   if (error || !data?.sslcommerz_store_id || !data.sslcommerz_store_password) {
-    return null;
+    return { ...SSLCOMMERZ_SANDBOX_CREDENTIALS };
   }
 
   return {
     storeId: data.sslcommerz_store_id,
     storePassword: data.sslcommerz_store_password,
-    isLive: Boolean(data.sslcommerz_is_live),
+    isLive:
+      Boolean(data.sslcommerz_is_live) &&
+      !isSandboxStoreId(data.sslcommerz_store_id),
   };
 }
 

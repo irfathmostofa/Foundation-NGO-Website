@@ -239,12 +239,23 @@ create trigger site_settings_set_updated_at
 before update on public.site_settings
 for each row execute function public.set_updated_at();
 
-insert into public.site_settings (id, foundation_name, meta_title, meta_description)
+insert into public.site_settings (
+  id,
+  foundation_name,
+  meta_title,
+  meta_description,
+  sslcommerz_store_id,
+  sslcommerz_store_password,
+  sslcommerz_is_live
+)
 values (
   1,
   'Hope Foundation',
   'Hope Foundation',
-  'A professional foundation website for causes, donations, and community impact.'
+  'A professional foundation website for causes, donations, and community impact.',
+  'testbox',
+  'qwerty',
+  false
 )
 on conflict (id) do nothing;
 

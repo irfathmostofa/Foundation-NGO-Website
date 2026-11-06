@@ -1,3 +1,4 @@
+import { isSandboxStoreId } from "@/lib/payments/sandbox";
 import { getSiteUrl } from "@/lib/payments/site-url";
 
 export type SslcommerzCredentials = {
@@ -33,10 +34,11 @@ export type SslcommerzValidation = {
 const SESSION_PATH = "/gwprocess/v4/api.php";
 const VALIDATE_PATH = "/validator/api/validationserverAPI.php";
 
-function gatewayHost(isLive: boolean) {
-  return isLive
-    ? "https://securepay.sslcommerz.com"
-    : "https://sandbox.sslcommerz.com";
+function gatewayHost(credentials: SslcommerzCredentials) {
+  if (!credentials.isLive || isSandboxStoreId(credentials.storeId)) {
+    return "https://sandbox.sslcommerz.com";
+  }
+  return "https://securepay.sslcommerz.com";
 }
 
 async function postForm(url: string, body: URLSearchParams) {
@@ -87,7 +89,7 @@ export async function createSslcommerzSession(input: SslcommerzSessionInput) {
   });
 
   const data = (await postForm(
-    `${gatewayHost(input.credentials.isLive)}${SESSION_PATH}`,
+    `${gatewayHost(input.credentials)}${SESSION_PATH}`,
     params,
   )) as { status?: string; GatewayPageURL?: string; failedreason?: string };
 
@@ -102,7 +104,7 @@ export async function validateSslcommerzPayment(
   credentials: SslcommerzCredentials,
   valId: string,
 ) {
-  const url = new URL(`${gatewayHost(credentials.isLive)}${VALIDATE_PATH}`);
+  const url = new URL(`${gatewayHost(credentials)}${VALIDATE_PATH}`);
   url.searchParams.set("val_id", valId);
   url.searchParams.set("store_id", credentials.storeId);
   url.searchParams.set("store_passwd", credentials.storePassword);

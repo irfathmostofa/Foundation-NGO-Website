@@ -54,7 +54,23 @@ export async function initiateDonationAction(
   }
 
   if (!isSupabaseConfigured() || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
-    return { error: "gateway" };
+    try {
+      const gatewayUrl = await createSslcommerzSession({
+        credentials,
+        transactionId: createTransactionId(),
+        amount: values.amount,
+        donorName: values.donor_name,
+        donorEmail: values.donor_email,
+        donorPhone: values.donor_phone,
+        donorAddress: values.donor_address,
+        productName: locale === "en" ? "General donation" : "সাধারণ দান",
+        donationId: "demo",
+        locale,
+      });
+      return { gatewayUrl };
+    } catch {
+      return { error: "gateway" };
+    }
   }
 
   let causeTitle = locale === "en" ? "General donation" : "সাধারণ দান";

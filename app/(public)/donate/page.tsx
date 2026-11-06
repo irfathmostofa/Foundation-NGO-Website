@@ -88,6 +88,15 @@ async function DonateCopy() {
     <div className="space-y-4 leading-7 text-muted-foreground">
       <p>{dict.brand.conservation}</p>
       <p>{dict.donate.secureNote}</p>
+      <div className="rounded-2xl border border-border bg-card p-5 text-sm">
+        <p className="font-medium text-foreground">{dict.donate.sandboxTitle}</p>
+        <ul className="mt-3 space-y-1.5">
+          <li>{dict.donate.sandboxVisa}</li>
+          <li>{dict.donate.sandboxMaster}</li>
+          <li>{dict.donate.sandboxAmex}</li>
+        </ul>
+        <p className="mt-3">{dict.donate.sandboxOtp}</p>
+      </div>
     </div>
   );
 }
